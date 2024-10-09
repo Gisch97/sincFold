@@ -93,7 +93,7 @@ class SincFold(nn.Module):
         mid_ch=1,
         kernel_resnet2d=5,
         bottleneck1_resnet2d=256,
-        bottleneck2_resnet2d=128,
+        bottleneck2_resnet2d=256,
         filters_resnet2d=256,
         rank=64,
         dilation_resnet2d=3,
@@ -141,12 +141,12 @@ class SincFold(nn.Module):
                 bottleneck1_resnet2d,
                 kernel_resnet2d,
                 dilation_resnet2d,
-            ), ResidualBlock2D(
-                filters_resnet2d,
-                bottleneck2_resnet2d,
-                kernel_resnet2d,
-                dilation_resnet2d,
-            )
+             )#, ResidualBlock2D(
+              #     filters_resnet2d,
+              #     bottleneck2_resnet2d,
+              #     kernel_resnet2d,
+              #     dilation_resnet2d,
+              # )
         ]
         
         self.resnet2d = nn.Sequential(*self.resnet2d)
