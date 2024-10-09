@@ -105,17 +105,17 @@ class SincFold(nn.Module):
 
         self.resnet1d = [nn.Conv1d(embedding_dim, filters, kernel, padding="same")]
 
-        for k in range(num_layers):
-            self.resnet1d.append(
-                ResidualLayer1D(
-                    dilation_resnet1d,
-                    resnet_bottleneck_factor,
-                    filters,
-                    kernel,
-                )
-            )
+        # for k in range(num_layers):
+        #     self.resnet1d.append(
+        #         ResidualLayer1D(
+        #             dilation_resnet1d,
+        #             resnet_bottleneck_factor,
+        #             filters,
+        #             kernel,
+        #         )
+        #    )
 
-        self.resnet1d = nn.Sequential(*self.resnet1d)
+        #self.resnet1d = nn.Sequential(*self.resnet1d)
 
         self.convrank1 = nn.Conv1d(
             in_channels=filters,
