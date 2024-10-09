@@ -99,7 +99,11 @@ class SincFold(nn.Module):
         dilation_resnet2d=3,
         **kwargs
     ):
+        
         pad = (kernel - 1) // 2
+
+        self.FeedForward1 = nn.Sequential(nn.Linear(embedding_dim, filters), nn.Relu())
+        self.FeedForward2 = nn.Sequential(nn.Linear(embedding_dim, filters), nn.Relu())
 
         self.use_restrictions = mid_ch != 1
 
@@ -163,11 +167,11 @@ class SincFold(nn.Module):
         batch_size = x.shape[0]
         L = x.shape[2]
         
-        y = self.resnet1d(x)
-        ya = self.convrank1(y)
+        # y = self.resnet1d(x)
+        ya = self.FeedForward1(x)
         ya = tr.transpose(ya, -1, -2)
 
-        yb = self.convrank2(y)
+        yb = self.FeedForward2(x)
 
         y = ya @ yb
         yt = tr.transpose(y, -1, -2)
