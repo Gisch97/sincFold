@@ -135,21 +135,21 @@ class SincFold(nn.Module):
         self.resnet2d = [nn.Conv2d(
             in_channels=mid_ch, out_channels=filters_resnet2d, kernel_size=7, padding="same"
         )]
-        # self.resnet2d += [
-        #     ResidualBlock2D(
-        #         filters_resnet2d,
-        #         bottleneck1_resnet2d,
-        #         kernel_resnet2d,
-        #         dilation_resnet2d,
-        #     ), ResidualBlock2D(
-        #         filters_resnet2d,
-        #         bottleneck2_resnet2d,
-        #         kernel_resnet2d,
-        #         dilation_resnet2d,
-        #     )
-        # ]
+        self.resnet2d += [
+            ResidualBlock2D(
+                filters_resnet2d,
+                bottleneck1_resnet2d,
+                kernel_resnet2d,
+                dilation_resnet2d,
+            ), ResidualBlock2D(
+                filters_resnet2d,
+                bottleneck2_resnet2d,
+                kernel_resnet2d,
+                dilation_resnet2d,
+            )
+        ]
         
-        # self.resnet2d = nn.Sequential(*self.resnet2d)
+        self.resnet2d = nn.Sequential(*self.resnet2d)
 
         self.conv2Dout = nn.Conv2d(
             in_channels=filters_resnet2d,
