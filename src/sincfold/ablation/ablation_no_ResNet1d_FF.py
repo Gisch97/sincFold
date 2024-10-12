@@ -1,5 +1,5 @@
 from torch import nn
-from torch.nn.functional import cross_entropy
+from torch.nn.functional import cross_entropy, relu
 import torch as tr
 from tqdm import tqdm
 import pandas as pd
@@ -82,28 +82,29 @@ class SincFold(nn.Module):
 
         self.to(device)
   
-    def build_graph(
-        self,
-        embedding_dim,
-        kernel=3,
-        filters=32,
-        num_layers=2,
-        dilation_resnet1d=3,
-        resnet_bottleneck_factor=0.5,
-        mid_ch=1,
-        kernel_resnet2d=5,
-        bottleneck1_resnet2d=256,
-        bottleneck2_resnet2d=128,
-        filters_resnet2d=256,
-        rank=64,
-        dilation_resnet2d=3,
-        **kwargs
-    ):
-        
-        pad = (kernel - 1) // 2
+        def build_graph(
+            self,
+            embedding_dim,
+            kernel=3,
+            filters=32,
+            num_layers=2,
+            dilation_resnet1d=3,
+            resnet_bottleneck_factor=0.5,
+            mid_ch=1,
+            kernel_resnet2d=5,
+            bottleneck1_resnet2d=256,
+            bottleneck2_resnet2d=128,
+            filters_resnet2d=256,
+            rank=64,
+            dilation_resnet2d=3,
+            **kwargs
+        ):
+            
+            pad = (kernel - 1) // 2
 
-        self.FeedForward1 = nn.Sequential(nn.Linear(embedding_dim, filters), nn.Relu())
-        self.FeedForward2 = nn.Sequential(nn.Linear(embedding_dim, filters), nn.Relu())
+            self.FeedForward1 = nn.Linear(embedding_dim, filters)
+            
+            self.FeedForward2 = nn.Linear(embedding_dim, filters)
 
         self.use_restrictions = mid_ch != 1
 
@@ -169,10 +170,12 @@ class SincFold(nn.Module):
         
         # y = self.resnet1d(x)
         ya = self.FeedForward1(x)
+        ya = relu(ya)
         ya = tr.transpose(ya, -1, -2)
 
         yb = self.FeedForward2(x)
-
+        yb = relu(yb)
+        
         y = ya @ yb
         yt = tr.transpose(y, -1, -2)
         y = (y + yt) / 2

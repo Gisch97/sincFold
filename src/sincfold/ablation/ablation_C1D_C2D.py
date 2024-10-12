@@ -115,7 +115,7 @@ class SincFold(nn.Module):
         #         )
         #     )
 
-        # self.resnet1d = nn.Sequential(*self.resnet1d)
+        self.resnet1d = nn.Sequential(*self.resnet1d)
 
         self.convrank1 = nn.Conv1d(
             in_channels=filters,
@@ -149,7 +149,7 @@ class SincFold(nn.Module):
         #     )
         # ]
         
-        # self.resnet2d = nn.Sequential(*self.resnet2d)
+        self.resnet2d = nn.Sequential(*self.resnet2d)
 
         self.conv2Dout = nn.Conv2d(
             in_channels=filters_resnet2d,
