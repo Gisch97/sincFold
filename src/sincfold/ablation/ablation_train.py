@@ -33,7 +33,7 @@ def train_net(ablation, train_file, out_path, num_epoch=20, valid_file=None):
     valid_file=None
     nworkers=2
     verbose=True
-    config['device'] = 'cpu'
+    config['device'] = 'cuda'
 
     if verbose:
         print("Working on", out_path)
