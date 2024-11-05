@@ -10,11 +10,11 @@ from sincfold.dataset import SeqDataset, pad_batch
 from torch.utils.data import DataLoader
 
 from sincfold.model import sincfold
-from sincfold.ablation.ablation_1ResNet2d import sincfold_1ResNet2d
-from sincfold.ablation.ablation_no_ResNet1d_FF import sincfold_no_ResNet1d_FF
-from sincfold.ablation.ablation_no_ResNet2d import sincfold_no_ResNet2d
 from sincfold.ablation.ablation_C1D_C2D import sincfold_C1D_C2D
+from sincfold.ablation.ablation_no_ResNet2d import sincfold_no_ResNet2d
+from sincfold.ablation.ablation_1ResNet2d import sincfold_1ResNet2d
 from sincfold.ablation.ablation_no_ResNet1d import sincfold_no_ResNet1d
+from sincfold.ablation.ablation_no_ResNet1d_FF import sincfold_no_ResNet1d_FF
 
 
 def train_net(ablation, train_file, out_path, num_epoch=20, valid_file=None):
