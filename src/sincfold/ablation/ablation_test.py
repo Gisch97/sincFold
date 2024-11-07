@@ -5,9 +5,14 @@ import torch as tr
 import pandas as pd
 import shutil
 
-import torch.nn as nn
-from sincfold.dataset import SeqDataset, pad_batch
+
 from torch.utils.data import DataLoader
+from sincfold.dataset import SeqDataset, pad_batch
+from sincfold.model import sincfold
+from sincfold.embeddings import NT_DICT
+from sincfold.utils import write_ct, validate_file, ct2dot
+from sincfold.parser import parser
+from sincfold.utils import dot2png, ct2svg
 
 from sincfold.model import sincfold
 from sincfold.ablation.ablation_C1D_C2D import sincfold_C1D_C2D
