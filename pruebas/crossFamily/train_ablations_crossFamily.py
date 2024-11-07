@@ -21,7 +21,7 @@ from sincfold.ablation.ablation_train import train_net
 # family = 'RNaseP'
 
 ABLATION = 'sincfold'
-valid_with_test=True
+valid_with_test=False
 
 ########################################
 # Paths definitions

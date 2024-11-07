@@ -37,7 +37,7 @@ for ABLATION in ablations:
         # Args    
         TEST_FILE = TEST_FAMILY[family]
         ABLATION_WEIGHTS = os.path.join(os.path.join(CROSS_FAMILIES_WEIGHTS,family), ABLATION) + '/valid_with_test/weights.pmt'
-        OUT_FILE = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION +'/test_log.csv'
+        OUT_FILE = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION +'/valid_with_test/test_log.csv'
 
             
         print(f'''
