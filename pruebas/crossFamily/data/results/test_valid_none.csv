@@ -1,0 +1,16 @@
+,f1,f1_post,loss,ablation,crossFamily
+0,0.499,0.507,0.095,C1D_C2D,tRNA
+1,0.547,0.56,0.096,no_ResNet2d,tRNA
+2,0.522,0.524,0.275,1ResNet2d,tRNA
+3,0.472,0.469,0.332,no_ResNet1d,tRNA
+4,0.269,0.287,0.037,C1D_C2D,RNaseP
+5,0.237,0.27,0.04,no_ResNet2d,RNaseP
+6,0.356,0.364,0.091,1ResNet2d,RNaseP
+7,0.334,0.333,0.137,no_ResNet1d,RNaseP
+8,0.153,0.185,0.03,C1D_C2D,telomerase
+9,0.131,0.157,0.034,no_ResNet2d,telomerase
+10,0.138,0.118,0.071,1ResNet2d,telomerase
+11,0.085,0.079,0.109,no_ResNet1d,telomerase
+0,0.685,0.685,0.0,ref_sincfold,tRNA
+0,0.154,0.154,0.0,ref_sincfold,telomerase
+0,0.443,0.443,0.0,ref_sincfold,RNaseP
