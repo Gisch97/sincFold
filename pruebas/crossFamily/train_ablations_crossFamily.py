@@ -20,7 +20,7 @@ from sincfold.ablation.ablation_train import train_net
 
 # family = 'RNaseP'
 
-ABLATION = 'sincfold'
+ABLATION = 'C1D_C2D'
 valid_with_test=False
 
 ########################################
@@ -39,7 +39,7 @@ TEST_FAMILY = {fam: CROSS_FAMILIES_PATH + 'test_' + fam + '.csv' for fam in fami
 for family in families:
     # Args    
     TRAIN_FILE = TRAIN_FAMILY[family]
-    OUT_PATH = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION
+    OUT_PATH = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION + '/100_epoch'
     VALID_FILE=None
     if valid_with_test:
         OUT_PATH+= '/valid_with_test/'
@@ -57,4 +57,5 @@ for family in families:
     ablation= ABLATION,
         train_file= TRAIN_FILE,
         out_path= OUT_PATH,
-        valid_file= VALID_FILE)
+        valid_file= VALID_FILE,
+        num_epoch=100)
