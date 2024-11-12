@@ -18,8 +18,8 @@ from sincfold.ablation.ablation_test import test_net
 
 # Calculation
 
-family = 'RNaseP'
-
+# family = 'RNaseP'
+families = ['tRNA', 'telomerase', 'RNaseP']
 ########################################
 # Paths definitions
 
@@ -31,13 +31,15 @@ families = ['tRNA', 'telomerase', 'RNaseP']
 TEST_FAMILY = {fam: CROSS_FAMILIES_PATH + 'test_' + fam + '.csv' for fam in families}
 
 ########################################
-ablations =  ['C1D_C2D', 'no_ResNet2d', 'sincfold']
+# ablations =  ['C1D_C2D', 'no_ResNet2d', 'sincfold']
+ablations = ['C1D_C2D']
 for ABLATION in ablations:
+
     for family in families:
         # Args    
         TEST_FILE = TEST_FAMILY[family]
-        ABLATION_WEIGHTS = os.path.join(os.path.join(CROSS_FAMILIES_WEIGHTS,family), ABLATION) + '/valid_with_test/weights.pmt'
-        OUT_FILE = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION +'/valid_with_test/test_log.csv'
+        ABLATION_WEIGHTS = os.path.join(os.path.join(CROSS_FAMILIES_WEIGHTS,family), ABLATION) + '/100_epoch/weights.pmt'
+        OUT_FILE = CROSS_FAMILIES_WEIGHTS + family + '/' + ABLATION +'/100_epoch/test_log.csv'
 
             
         print(f'''
