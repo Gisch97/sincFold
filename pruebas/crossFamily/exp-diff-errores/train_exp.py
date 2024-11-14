@@ -23,7 +23,7 @@ valid_with_test=False
 
 ########################################
 # Paths definitions
-TEST = 'exp-diff-errores/test-2/'
+TEST = 'test-3/'
 families = 'telomerase'
 TRAIN_LOG = 'train_log.csv'
 EXP = f'{ABLATION}-{families}'
