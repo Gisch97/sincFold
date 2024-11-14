@@ -84,7 +84,7 @@ def train_net(ablation, train_file, out_path, num_epoch=20, valid_file=None):
     max_epochs = config["max_epochs"] if "max_epochs" in config else 1000
     logfile = os.path.join(out_path, "train_log.csv")
 
-    for epoch in range(num_epoch): ## 6 epochs
+    for epoch in range(num_epoch):
         train_metrics = net.fit(train_loader)
 
         val_metrics = net.test(valid_loader)

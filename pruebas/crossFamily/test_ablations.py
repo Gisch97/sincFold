@@ -13,7 +13,7 @@ from sincfold.ablation.ablation_test import test_net
     #     'no_ResNet2d'                    #
     #     '1ResNet2d'                      #
     #     'no_ResNet1d'                    #
-    #     'no_ResNet1d_FF'                 #
+    #  XX 'no_ResNet1d_FF'      XX         #
     ########################################
 
 # Calculation
