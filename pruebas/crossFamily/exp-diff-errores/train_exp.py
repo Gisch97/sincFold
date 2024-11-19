@@ -23,7 +23,7 @@ valid_with_test=False
 
 ########################################
 # Paths definitions
-TEST = 'test-3/'
+TEST = 'test-1/'
 families = 'telomerase'
 TRAIN_LOG = 'train_log.csv'
 EXP = f'{ABLATION}-{families}'
@@ -37,11 +37,12 @@ TEST_FAMILY = '../data/test_telomerase.csv'
 # for family in families:
 # Args    
 TRAIN_FILE = TRAIN_FAMILY
-OUT_PATH = TEST + EXP 
 
 for i in range(2):
-    if i ==1: valid_with_test=True
+    # if i ==1: valid_with_test=True
+    if i ==1: TEST = 'test-2/'
     VALID_FILE=None
+    OUT_PATH = TEST + EXP 
     if valid_with_test:
         OUT_PATH+= '/valid_with_test/'
         VALID_FILE= TEST_FAMILY
