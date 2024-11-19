@@ -55,7 +55,7 @@ def train_net(ablation, train_file, out_path, num_epoch=20, valid_file=None):
         train_file = os.path.join(out_path, "train.csv")
         valid_file = os.path.join(out_path, "valid.csv")
 
-        val_data = data.sample(frac = valid_split)
+        val_data = data.sample(frac = valid_split, random_state=42)
         val_data.to_csv(valid_file, index=False)
         data.drop(val_data.index).to_csv(train_file, index=False)
 
