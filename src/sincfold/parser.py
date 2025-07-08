@@ -50,6 +50,9 @@ def parser():
         "--no-cache",
         action="store_true", help="Cache of data for training (default: cache is used)",
     )
+    parser_train.add_argument(
+        "-w", type=str, dest="model_weights", help="Trained model weights"
+    )
 
     # test parser
     parser_test = subparsers.add_parser("test", help="Test a model")
