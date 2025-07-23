@@ -101,7 +101,7 @@ def train(
         os.makedirs(out_path)
     else:
         raise ValueError(f"Output path {out_path} already exists")
-
+        
     if valid_file is not None:
         train_file = train_file
         valid_file = valid_file
@@ -143,11 +143,11 @@ def train(
     max_epochs = config["max_epochs"] if "max_epochs" in config else 1000
     logfile = os.path.join(out_path, "train_log.csv")
 
-    epochs_from_steps = int(round(max_epochs / len(train_loader)))
-    print(
-        f"epochs_from_steps: {epochs_from_steps} | len(train_loader): {len(train_loader)} "
-    )
-    for epoch in range(epochs_from_steps):
+    # epochs_from_steps = int(round(max_epochs / len(train_loader)))
+    # print(
+    #     f"epochs_from_steps: {epochs_from_steps} | len(train_loader): {len(train_loader)} "
+    # )
+    for epoch in range(max_epochs):
         train_metrics = net.fit(train_loader)
 
         val_metrics = net.test(valid_loader)
